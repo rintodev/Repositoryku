@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="lap_jurnal" language="groovy" pageWidth="684" pageHeight="842" columnWidth="644" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ac14d4d-91c8-42bf-92b2-fd22b7338b09">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="84"/>
+	<queryString>
+		<![CDATA[SELECT
+     jurnal.`tgltransaksi` AS jurnal_tgltransaksi,
+     jurnal.`kdtransaksi` AS jurnal_kdtransaksi,
+     jurnal.`kdperkiraan` AS jurnal_kdperkiraan,
+     jurnal.`ket` AS jurnal_ket,
+     jurnal.`jenis` AS jurnal_jenis,
+     jurnal.`jumlah` AS jurnal_jumlah,
+     jurnal.`debit` AS jurnal_debit,
+     jurnal.`kredit` AS jurnal_kredit,
+     perkiraan.`kdperkiraan` AS perkiraan_kdperkiraan,
+     perkiraan.`namaperkiraan` AS perkiraan_namaperkiraan
+FROM
+     `perkiraan` perkiraan INNER JOIN `jurnal` jurnal ON perkiraan.`kdperkiraan` = jurnal.`kdperkiraan`]]>
+	</queryString>
+	<field name="jurnal_tgltransaksi" class="java.sql.Date"/>
+	<field name="jurnal_kdtransaksi" class="java.lang.String"/>
+	<field name="jurnal_kdperkiraan" class="java.lang.String"/>
+	<field name="jurnal_ket" class="java.lang.String"/>
+	<field name="jurnal_jenis" class="java.lang.String"/>
+	<field name="jurnal_jumlah" class="java.lang.Integer"/>
+	<field name="jurnal_debit" class="java.lang.Integer"/>
+	<field name="jurnal_kredit" class="java.lang.Integer"/>
+	<field name="perkiraan_kdperkiraan" class="java.lang.String"/>
+	<field name="perkiraan_namaperkiraan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="109" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="60" width="551" height="42" uuid="ab307fd5-34b7-45ea-956e-18fa6e6d6cc9"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN JURNAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="6" y="7" width="547" height="33" uuid="4b2978eb-5e5c-47b9-85e8-c369010696d1"/>
+				<textElement textAlignment="Center">
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[TOKO KOPI SEDUH]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement x="418" y="5" width="1" height="32" uuid="89d21749-76b0-474a-bd95-6d29a89afddf"/>
+			</line>
+			<line>
+				<reportElement x="135" y="5" width="1" height="32" uuid="8e157efd-e8ae-480e-9eac-4f5f816b5b94"/>
+			</line>
+			<staticText>
+				<reportElement x="345" y="12" width="63" height="20" uuid="996172e9-4b6a-4446-ba4f-59a77ef237c2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nama Perk.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="11" width="48" height="20" uuid="9f1a5075-ecea-49f2-8fed-c3e7f48b0b42"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kode Perk.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="516" y="9" width="72" height="20" uuid="53e2de6c-9940-4742-8d72-d4afbd65d068"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kredit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="10" width="82" height="20" uuid="c3941ad9-32af-487e-9d69-624748e4be8a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[KET]]></text>
+			</staticText>
+			<line>
+				<reportElement x="193" y="5" width="1" height="32" uuid="f864d235-0fe5-4994-ad47-964921765d91"/>
+			</line>
+			<line>
+				<reportElement x="332" y="5" width="1" height="32" uuid="b52bddf3-03d3-47e3-bd90-ca0aaceed719"/>
+			</line>
+			<staticText>
+				<reportElement x="46" y="11" width="86" height="20" uuid="29ef23df-2807-4377-804b-cf1c5586ba37"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Kode Transaski]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="11" width="51" height="20" uuid="a21f0cda-4ef0-4bf6-9789-8b311825d539"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="11" width="59" height="20" uuid="e7fabd88-c8bf-4b44-8cc2-c2e353c2edf5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Debet]]></text>
+			</staticText>
+			<line>
+				<reportElement x="281" y="4" width="1" height="33" uuid="44421e98-67ed-48f8-bbc7-1ae24cfe781f"/>
+			</line>
+			<line>
+				<reportElement x="593" y="5" width="1" height="32" uuid="0ede7bd3-34db-49b0-a21d-0a134fa8487b"/>
+			</line>
+			<line>
+				<reportElement x="38" y="3" width="1" height="34" uuid="3ad0a4ad-84ae-46a6-b7c2-b0ed17d74283"/>
+			</line>
+			<line>
+				<reportElement x="6" y="4" width="587" height="1" uuid="d88803ab-114e-4dcc-be75-5e5cd47a078b"/>
+			</line>
+			<line>
+				<reportElement x="504" y="5" width="1" height="32" uuid="1d614078-c045-4d11-a799-bd109f640992"/>
+			</line>
+			<line>
+				<reportElement x="6" y="37" width="587" height="1" uuid="969825b3-7f81-4ad4-b389-b412ccc74e0f"/>
+			</line>
+			<staticText>
+				<reportElement x="6" y="11" width="32" height="20" uuid="78dcdd35-870b-4f02-ad2b-e5be4d7d5aa4"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="4" width="1" height="34" uuid="163c21ae-1ada-433b-936b-d4a9e5009126"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="332" y="-1" width="1" height="32" uuid="80aae864-0af3-4354-bd39-bca06c1f5cae"/>
+			</line>
+			<line>
+				<reportElement x="5" y="31" width="588" height="1" uuid="b2d2c0b3-1be1-4dc1-94fb-f021b523b463"/>
+			</line>
+			<line>
+				<reportElement x="38" y="-2" width="1" height="33" uuid="7a36a1b8-43b5-44e7-92a3-e74fc9c28f62"/>
+			</line>
+			<line>
+				<reportElement x="593" y="-1" width="1" height="33" uuid="0c51da3f-06e1-44e9-ac1b-c060b972a2eb"/>
+			</line>
+			<line>
+				<reportElement x="193" y="-1" width="1" height="32" uuid="af3a3b6f-a688-4327-9d26-359b5cf750bc"/>
+			</line>
+			<line>
+				<reportElement x="281" y="0" width="1" height="30" uuid="5c4550c9-1b81-4d25-b233-4735052f3517"/>
+			</line>
+			<line>
+				<reportElement x="418" y="0" width="1" height="32" uuid="91ccae73-3b89-4207-999b-dccf33701028"/>
+			</line>
+			<line>
+				<reportElement x="135" y="0" width="1" height="31" uuid="fba83e32-7d77-4548-b456-eb52313518d0"/>
+			</line>
+			<line>
+				<reportElement x="504" y="-1" width="1" height="33" uuid="91ac6b57-1902-420c-a5e4-ecdf6e844cbe"/>
+			</line>
+			<line>
+				<reportElement x="4" y="0" width="1" height="32" uuid="6cdbf1cd-de0f-4769-8d20-dbd324b5a13a"/>
+			</line>
+			<textField>
+				<reportElement x="12" y="8" width="20" height="20" uuid="73602332-6fa9-4054-aaaa-97c4379c9243"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="8" width="86" height="20" uuid="89e9234a-d97a-435e-8447-d4b55988281c"/>
+				<textFieldExpression><![CDATA[$F{jurnal_kdtransaksi}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="138" y="8" width="51" height="20" uuid="f3c1027b-3309-4b85-bf72-a590eaae1c3f"/>
+				<textFieldExpression><![CDATA[$F{jurnal_tgltransaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="196" y="8" width="82" height="20" uuid="4f66f461-1b0e-44a1-9373-00a32b11ee94"/>
+				<textFieldExpression><![CDATA[$F{jurnal_ket}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="8" width="49" height="20" uuid="c734b46c-f9a9-4419-b2ec-3f324d8e1c98"/>
+				<textFieldExpression><![CDATA[$F{jurnal_kdperkiraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="337" y="8" width="71" height="20" uuid="c49be162-d93c-4999-8593-d0b9b326d80b"/>
+				<textFieldExpression><![CDATA[$F{perkiraan_namaperkiraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="7" width="68" height="20" uuid="daa27659-264b-448d-84e0-ca4bd21e85b8"/>
+				<textFieldExpression><![CDATA[$F{jurnal_debit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="508" y="8" width="80" height="20" uuid="3c2c7ade-4365-4c69-b2fa-1e22ed7a247d"/>
+				<textFieldExpression><![CDATA[$F{jurnal_kredit}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="415" y="47" width="75" height="20" uuid="e9823594-5c0d-4e20-aca6-5ba13b966222"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pimpinan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="12" width="66" height="20" uuid="bcdf82e1-6e87-4484-a44d-d02f0c0cdfec"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Padang,]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="490" y="12" width="111" height="20" uuid="89ddfd00-88d1-4238-a817-517165898186"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

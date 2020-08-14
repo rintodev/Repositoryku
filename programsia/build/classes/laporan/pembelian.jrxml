@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1000" pageHeight="842" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4dc66467-2901-451b-baaf-7a459e43ba11">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="207"/>
+	<property name="ireport.y" value="43"/>
+	<parameter name="bulan" class="java.lang.String"/>
+	<parameter name="tahun" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     detail_penjualan.`nofaktur` AS detail_penjualan_nofaktur,
+     detail_penjualan.`kodebarang` AS detail_penjualan_kodebarang,
+     detail_penjualan.`nama` AS detail_penjualan_nama,
+     detail_penjualan.`harga` AS detail_penjualan_harga,
+     detail_penjualan.`jumlah` AS detail_penjualan_jumlah,
+     detail_penjualan.`subtotal` AS detail_penjualan_subtotal,
+     penjualan.`nofaktur` AS penjualan_nofaktur,
+     penjualan.`tgl` AS penjualan_tgl,
+     penjualan.`hargatotal` AS penjualan_hargatotal
+FROM
+     `penjualan` penjualan INNER JOIN `detail_penjualan` detail_penjualan ON penjualan.`nofaktur` = detail_penjualan.`nofaktur`]]>
+	</queryString>
+	<field name="detail_penjualan_nofaktur" class="java.lang.String"/>
+	<field name="detail_penjualan_kodebarang" class="java.lang.String"/>
+	<field name="detail_penjualan_nama" class="java.lang.String"/>
+	<field name="detail_penjualan_harga" class="java.lang.Integer"/>
+	<field name="detail_penjualan_jumlah" class="java.lang.Integer"/>
+	<field name="detail_penjualan_subtotal" class="java.lang.Integer"/>
+	<field name="penjualan_nofaktur" class="java.lang.String"/>
+	<field name="penjualan_tgl" class="java.sql.Date"/>
+	<field name="penjualan_hargatotal" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="121" splitType="Stretch">
+			<staticText>
+				<reportElement x="203" y="86" width="382" height="20" uuid="566650d4-fe59-4ce6-aa67-c4ca73a5c9e6"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PENJUALAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="150" y="81" width="662" height="1" uuid="7cb97926-6065-4017-8628-1e8ac6e4e3ce"/>
+			</line>
+			<line>
+				<reportElement x="160" y="85" width="629" height="1" uuid="0b1f18c2-c365-4af6-b61a-511cb3112f9b"/>
+			</line>
+			<staticText>
+				<reportElement x="200" y="61" width="382" height="20" uuid="02f4c3d8-8077-4a08-85e9-fb4c83acfee8"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOKO KOPI SEDUH]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="287" y="-6" width="242" height="20" uuid="390f4c14-8d85-40cf-8b65-58d48c5b2097"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["BULAN    :  " + new SimpleDateFormat("MMMM yyyy", new java.util.Locale("id")).format($F{penjualan_tgl})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="3" width="18" height="20" uuid="e5173a93-8225-4d04-96bf-f47247b1e844"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="3" width="81" height="37" uuid="45809122-bb33-43f6-9bf4-8410a7008c6f"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NAMA BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="3" width="114" height="20" uuid="b84f5e65-3133-4555-a92c-d45838410a13"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[HARGA BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="544" y="3" width="50" height="20" uuid="b43f374b-080b-4ade-8390-956ce362c07a"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[JUMLAH ]]></text>
+			</staticText>
+			<line>
+				<reportElement x="73" y="1" width="676" height="1" uuid="fb2f7641-4565-4050-857b-6dc5db62723b"/>
+			</line>
+			<line>
+				<reportElement x="74" y="1" width="1" height="40" uuid="d4842d57-17aa-4341-938c-f68fb456e060"/>
+			</line>
+			<line>
+				<reportElement x="104" y="2" width="1" height="39" uuid="1081e30d-5f55-4c9c-9859-32fd22295a8b"/>
+			</line>
+			<line>
+				<reportElement x="203" y="1" width="1" height="40" uuid="388e7054-aacb-45a9-aa99-87ea1344fff0"/>
+			</line>
+			<line>
+				<reportElement x="324" y="2" width="1" height="38" uuid="e8f971b5-1214-4da4-a2d3-aa63e24bf000"/>
+			</line>
+			<line>
+				<reportElement x="426" y="1" width="1" height="40" uuid="723b05af-2f76-4ab8-a03e-a0d8db26de98"/>
+			</line>
+			<line>
+				<reportElement x="536" y="1" width="1" height="40" uuid="5515cdba-22d8-486a-ba34-67573490f3d5"/>
+			</line>
+			<line>
+				<reportElement x="602" y="1" width="1" height="39" uuid="7f62bfdd-823f-439c-a417-5cf4721c9f68"/>
+			</line>
+			<staticText>
+				<reportElement x="223" y="3" width="79" height="37" uuid="6fdabd2b-e5aa-430a-91b9-fb59b3a7ddf6"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[KODE BARANG]]></text>
+			</staticText>
+			<line>
+				<reportElement x="74" y="40" width="676" height="1" uuid="31c94697-ea89-4b9d-9ce6-973cda6e788a"/>
+			</line>
+			<line>
+				<reportElement x="749" y="1" width="1" height="39" uuid="90143a3a-646d-434a-b72a-040e335d5ecb"/>
+			</line>
+			<staticText>
+				<reportElement x="608" y="3" width="133" height="20" uuid="f0a20ee6-1793-48fd-94cb-c538ac798ab8"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[HARGA TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="3" width="84" height="20" uuid="fb55ba9d-9ade-4908-be6c-09376358c452"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[TANGGAL ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<line>
+				<reportElement x="74" y="-3" width="1" height="26" uuid="0e2c5ac5-bb69-49c6-a96a-6fd30033bccc"/>
+			</line>
+			<line>
+				<reportElement x="104" y="-2" width="1" height="25" uuid="77aa9a6a-5d40-4263-8b31-0486d8069dbe"/>
+			</line>
+			<line>
+				<reportElement x="203" y="-3" width="1" height="26" uuid="b5cdbb01-3fc5-443f-88a4-78ee4a2b926a"/>
+			</line>
+			<line>
+				<reportElement x="324" y="-2" width="1" height="24" uuid="eccfa66b-4739-4d87-98b3-bd078b84bd2f"/>
+			</line>
+			<line>
+				<reportElement x="426" y="-3" width="1" height="26" uuid="062759c5-90e7-463c-b3c8-fdb39d95bcf3"/>
+			</line>
+			<line>
+				<reportElement x="536" y="-3" width="1" height="26" uuid="bff272d5-7ced-4b62-a9a9-03e763621754"/>
+			</line>
+			<line>
+				<reportElement x="602" y="-2" width="1" height="25" uuid="2289e832-e6ed-4b62-96d8-269a419d855e"/>
+			</line>
+			<line>
+				<reportElement x="749" y="1" width="1" height="22" uuid="f6982ae9-1172-433e-9939-d4764b252d48"/>
+			</line>
+			<line>
+				<reportElement x="74" y="23" width="676" height="1" uuid="a2c64b67-b007-4f8b-bb32-68280be5b021"/>
+			</line>
+			<textField>
+				<reportElement x="78" y="2" width="20" height="20" uuid="18db7902-bb7b-45ab-83b9-0d3bfd668c7d"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="109" y="1" width="91" height="20" uuid="c6697a67-23a9-450c-97f7-5b183699e8a3"/>
+				<textFieldExpression><![CDATA[$F{penjualan_tgl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="0" width="100" height="20" uuid="33dd5aa1-b39c-4d9c-8e38-675819a8d8c5"/>
+				<textFieldExpression><![CDATA[$F{detail_penjualan_kodebarang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="1" width="82" height="20" uuid="4c8781ec-e2b2-4968-ae52-4237bf767f9e"/>
+				<textFieldExpression><![CDATA[$F{detail_penjualan_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="1" width="93" height="20" uuid="456331d7-f9c9-4e8e-8641-5fe7c5f11294"/>
+				<textFieldExpression><![CDATA[$F{detail_penjualan_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="1" width="54" height="20" uuid="48c4e94e-00b0-46e0-95bc-d29b3188ce6e"/>
+				<textFieldExpression><![CDATA[$F{detail_penjualan_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="606" y="2" width="100" height="20" uuid="43ebb7f3-ab32-4cdd-bdf3-b7db96b07a2d"/>
+				<textFieldExpression><![CDATA[$F{penjualan_hargatotal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="122" splitType="Stretch">
+			<staticText>
+				<reportElement x="597" y="27" width="50" height="20" uuid="c111eee8-5334-4f22-8fb0-20b07054d320"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[pimpinan]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="597" y="0" width="152" height="16" uuid="f28a37a7-1aca-45ca-a5ca-f21a3973202e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Padang :   "  + new SimpleDateFormat("dd/MM/yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

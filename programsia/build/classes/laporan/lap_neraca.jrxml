@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="lap_neracaa" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d192e20-0db3-4dcb-85f2-288b5b2cf881">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     perkiraan.`kdperkiraan` AS perkiraan_kdperkiraan,
+     perkiraan.`namaperkiraan` AS perkiraan_namaperkiraan,
+     jurnal.`tgltransaksi` AS jurnal_tgltransaksi,
+     jurnal.`kdtransaksi` AS jurnal_kdtransaksi,
+     jurnal.`kdperkiraan` AS jurnal_kdperkiraan,
+     jurnal.`ket` AS jurnal_ket,
+     jurnal.`jenis` AS jurnal_jenis,
+     jurnal.`jumlah` AS jurnal_jumlah,
+     jurnal.`debit` AS jurnal_debit,
+     jurnal.`kredit` AS jurnal_kredit
+FROM
+     `jurnal` jurnal INNER JOIN `perkiraan` perkiraan ON jurnal.`kdperkiraan` = perkiraan.`kdperkiraan`]]>
+	</queryString>
+	<field name="perkiraan_kdperkiraan" class="java.lang.String"/>
+	<field name="perkiraan_namaperkiraan" class="java.lang.String"/>
+	<field name="jurnal_tgltransaksi" class="java.sql.Date"/>
+	<field name="jurnal_kdtransaksi" class="java.lang.String"/>
+	<field name="jurnal_kdperkiraan" class="java.lang.String"/>
+	<field name="jurnal_ket" class="java.lang.String"/>
+	<field name="jurnal_jenis" class="java.lang.String"/>
+	<field name="jurnal_jumlah" class="java.lang.Integer"/>
+	<field name="jurnal_debit" class="java.lang.Integer"/>
+	<field name="jurnal_kredit" class="java.lang.Integer"/>
+	<variable name="jurnal_debet_1" class="java.lang.Integer" resetType="Group" resetGroup="ok" calculation="Sum">
+		<variableExpression><![CDATA[$F{jurnal_debet}]]></variableExpression>
+	</variable>
+	<variable name="jurnal_kredit_1" class="java.lang.Integer" resetType="Group" resetGroup="ok" calculation="Sum">
+		<variableExpression><![CDATA[$F{jurnal_kredit}]]></variableExpression>
+	</variable>
+	<group name="ok">
+		<groupExpression><![CDATA[$V{PAGE_NUMBER}]]></groupExpression>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="64" width="554" height="27" uuid="85f6bd4a-e83c-49a1-9d43-5b328801d5fb"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[LAPORAN NERACA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="33" width="554" height="21" uuid="58d4cbb3-fa65-4c56-99a1-d9444033d8e6"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOKO KOPI SEDUH]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement mode="Opaque" x="313" y="8" width="1" height="25" uuid="704471c5-bc61-4a66-b4ef-3553acdfb4b5"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="50" y="8" width="1" height="25" uuid="a932fdc6-3c5a-4615-af64-ac48e10343ab"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="546" y="7" width="1" height="27" uuid="f538d2ac-b202-4cd7-974b-82f5277b7652"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="434" y="8" width="1" height="26" uuid="088b7d32-92db-4799-b298-2fbcf8bf4b08"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="161" y="7" width="1" height="25" uuid="002c30e1-932e-4156-bc77-44c6098d8d28"/>
+			</line>
+			<line>
+				<reportElement x="15" y="7" width="532" height="1" uuid="44ac8943-739f-4ae4-9ecb-4c25a7506b32"/>
+			</line>
+			<line>
+				<reportElement x="15" y="33" width="532" height="1" uuid="3b50351e-ad42-44b1-a4c3-0be9c0a78429"/>
+			</line>
+			<staticText>
+				<reportElement x="187" y="10" width="100" height="20" uuid="b85fb909-ea71-4ae1-9e1d-1941e9697f53"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Nama Perkiraan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="327" y="11" width="100" height="20" uuid="de226311-4ef8-4ae5-aaec-4eb2898b37d2"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Debet]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="60" y="11" width="91" height="20" uuid="c6fa619b-be8a-47a5-bb2e-cbef42b18eea"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kode Perkiraan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="443" y="11" width="100" height="20" uuid="621dbbf5-9e81-4c11-8b50-84d3c30e4506"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kredit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="20" y="11" width="19" height="20" uuid="fc8e0523-1ae4-40af-a2ed-c7fd068a62aa"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<line>
+				<reportElement mode="Opaque" x="15" y="8" width="1" height="25" uuid="8dbab3aa-58eb-4d46-9a40-d23960397350"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<line>
+				<reportElement x="15" y="27" width="532" height="1" uuid="ec7a69af-f69f-45ca-912b-66011558e769"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="50" y="-1" width="1" height="28" uuid="56ca246c-7895-48d8-affd-2c03adbef34e"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="161" y="-2" width="1" height="28" uuid="a93d9d28-8c86-4f1a-a1ef-3f93772a6b3f"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="434" y="0" width="1" height="28" uuid="fa894949-f43b-4184-bf73-f7d8e4ed5982"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="546" y="0" width="1" height="28" uuid="ba9acd4c-f4fc-40e9-b325-f6668c473184"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="313" y="-1" width="1" height="28" uuid="15c34362-87a3-4380-8755-e436c3a84e88"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="15" y="0" width="1" height="28" uuid="5afbe7bf-7480-4dea-b57f-7d29c576cdda"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="41" splitType="Stretch"/>
+	</summary>
+</jasperReport>

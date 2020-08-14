@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1000" pageHeight="842" columnWidth="960" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1bd7c0c2-6e3f-4454-b149-c6daa1c3959a">
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="673"/>
+	<property name="ireport.y" value="195"/>
+	<parameter name="jdebit" class="java.lang.String"/>
+	<parameter name="jkredit" class="java.lang.String"/>
+	<parameter name="hasil" class="java.lang.String"/>
+	<parameter name="ket" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     jurnal.`tgltransaksi` AS jurnal_tgltransaksi,
+     jurnal.`kdtransaksi` AS jurnal_kdtransaksi,
+     jurnal.`kdperkiraan` AS jurnal_kdperkiraan,
+     jurnal.`ket` AS jurnal_ket,
+     jurnal.`jenis` AS jurnal_jenis,
+     jurnal.`jumlah` AS jurnal_jumlah,
+     jurnal.`debit` AS jurnal_debit,
+     jurnal.`kredit` AS jurnal_kredit,
+     perkiraan.`kdperkiraan` AS perkiraan_kdperkiraan,
+     perkiraan.`namaperkiraan` AS perkiraan_namaperkiraan
+FROM
+     `perkiraan` perkiraan INNER JOIN `jurnal` jurnal ON perkiraan.`kdperkiraan` = jurnal.`kdperkiraan`]]>
+	</queryString>
+	<field name="jurnal_tgltransaksi" class="java.sql.Date"/>
+	<field name="jurnal_kdtransaksi" class="java.lang.String"/>
+	<field name="jurnal_kdperkiraan" class="java.lang.String"/>
+	<field name="jurnal_ket" class="java.lang.String"/>
+	<field name="jurnal_jenis" class="java.lang.String"/>
+	<field name="jurnal_jumlah" class="java.lang.Integer"/>
+	<field name="jurnal_debit" class="java.lang.Integer"/>
+	<field name="jurnal_kredit" class="java.lang.Integer"/>
+	<field name="perkiraan_kdperkiraan" class="java.lang.String"/>
+	<field name="perkiraan_namaperkiraan" class="java.lang.String"/>
+	<variable name="jurnal_debit_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{jurnal_debit}]]></variableExpression>
+	</variable>
+	<variable name="jurnal_debit_2" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{jurnal_debit}]]></variableExpression>
+	</variable>
+	<variable name="jurnal_kredit_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{jurnal_kredit}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="123" splitType="Stretch">
+			<staticText>
+				<reportElement x="311" y="102" width="382" height="20" uuid="35793c44-0d07-4abb-ba56-bb48d3aca825"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN LABA RUGI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="160" y="91" width="662" height="1" uuid="e2c02a24-b56f-4497-ae7d-80b6eaea97cf"/>
+			</line>
+			<line>
+				<reportElement x="170" y="95" width="629" height="1" uuid="ca9ddb82-f07a-46e9-bc7c-0b379ac462b7"/>
+			</line>
+			<staticText>
+				<reportElement x="312" y="64" width="382" height="20" uuid="ebea2839-c23a-4ef3-a53c-090febf4bcda"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOKO KOPI SEDUH]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement x="451" y="0" width="152" height="16" uuid="dae9b901-fbe2-4cb7-964b-3e0302840520"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tanggal :   "  + new SimpleDateFormat("dd/MM/yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement x="727" y="7" width="1" height="26" uuid="452a1181-91bf-4a4f-8561-123699871a99"/>
+			</line>
+			<staticText>
+				<reportElement x="271" y="8" width="18" height="20" uuid="a619e1d5-794c-445e-b1ae-5fc6b2c777ae"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="394" y="7" width="1" height="26" uuid="96266b55-ddbf-4ba5-b401-a7ecad547354"/>
+			</line>
+			<staticText>
+				<reportElement x="300" y="10" width="94" height="20" uuid="e974f668-fd7a-43ce-9274-b4ebc368ce24"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[KODE PERKIRAAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="494" y="6" width="1" height="27" uuid="87d5c240-9213-470c-aaee-d84c768fca93"/>
+			</line>
+			<staticText>
+				<reportElement x="618" y="7" width="106" height="20" uuid="1861002b-1dee-4e96-a416-d6ca3ba6abeb"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[BIAYA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="9" width="94" height="20" uuid="b20af135-f0dd-421a-8107-6d78ffb6094e"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NAMA PERKIRAAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="265" y="7" width="1" height="26" uuid="9facd701-d809-44fc-96c1-7904583794ca"/>
+			</line>
+			<line>
+				<reportElement x="295" y="6" width="1" height="27" uuid="a6b00e83-02a6-49fa-b55e-934abdfa1527"/>
+			</line>
+			<staticText>
+				<reportElement x="500" y="8" width="114" height="20" uuid="ea4106cb-c1ec-42e6-879d-6b82866ba222"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[PENDAPATAN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="613" y="7" width="1" height="26" uuid="70300ea1-f638-4d1e-b330-07e03c634b3c"/>
+			</line>
+			<line>
+				<reportElement x="265" y="6" width="463" height="1" uuid="a70875a2-6bd5-446e-b9c3-e4d229d8fd8f"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="265" y="-7" width="1" height="27" uuid="ae050416-6498-45cf-90ab-6e50cea52f89"/>
+			</line>
+			<line>
+				<reportElement x="295" y="-7" width="1" height="27" uuid="f9aa8e4a-a4e6-4290-8a0a-13fed45638a6"/>
+			</line>
+			<line>
+				<reportElement x="394" y="-7" width="1" height="27" uuid="fcb47579-fc37-4df0-a41f-c3ec875d633b"/>
+			</line>
+			<line>
+				<reportElement x="494" y="-7" width="1" height="27" uuid="05139b27-6329-4e6e-a626-b03e27218db0"/>
+			</line>
+			<line>
+				<reportElement x="613" y="-7" width="1" height="27" uuid="d862b6f8-bc7a-4e16-81c5-c290d4f8e466"/>
+			</line>
+			<line>
+				<reportElement x="727" y="-7" width="1" height="27" uuid="9663d82e-a395-4cec-bff8-9740687d8da5"/>
+			</line>
+			<line>
+				<reportElement x="265" y="-1" width="461" height="1" uuid="321fffca-35ae-4e78-b54b-661c07c364b4"/>
+			</line>
+			<textField>
+				<reportElement x="272" y="1" width="18" height="18" uuid="72bdc22b-1973-4e3f-a05b-c45252b5c768"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="100" height="20" uuid="83530f13-62f2-45a2-97b7-ad08ec8217fe"/>
+				<textFieldExpression><![CDATA[$F{jurnal_debit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="622" y="0" width="100" height="20" uuid="b642165a-bc31-4ca1-b1d0-96dde779d6fa"/>
+				<textFieldExpression><![CDATA[$F{jurnal_kredit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="0" width="96" height="20" uuid="a1d68189-20ef-4954-99f9-d8814e0559e0"/>
+				<textFieldExpression><![CDATA[$F{jurnal_kdperkiraan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="20e8ea00-b354-4fc8-8b28-229cc1760217"/>
+				<textFieldExpression><![CDATA[$F{perkiraan_namaperkiraan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="112" splitType="Stretch">
+			<textField>
+				<reportElement x="586" y="62" width="152" height="16" uuid="7f3be5b2-787b-40d1-84af-abd3f5123324"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Padang :   "  + new SimpleDateFormat("dd/MM/yyyy", new java.util.Locale("id")).format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="586" y="78" width="50" height="20" uuid="40450081-5a86-4c16-b57c-e873a0071ce5"/>
+				<textElement>
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pimpinan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="265" y="0" width="464" height="1" uuid="19ebb5a6-bff9-4e1e-9c56-950fd0ca14a6"/>
+			</line>
+			<line>
+				<reportElement x="265" y="22" width="463" height="1" uuid="08cf4877-ddc2-429b-a52d-02a7b455a594"/>
+			</line>
+			<line>
+				<reportElement x="266" y="49" width="463" height="1" uuid="28f5855a-c95c-4332-b19a-be73807396dc"/>
+			</line>
+			<line>
+				<reportElement x="727" y="1" width="1" height="48" uuid="22b8a898-4d3c-41b2-adea-ed64327aab2d"/>
+			</line>
+			<line>
+				<reportElement x="613" y="1" width="1" height="22" uuid="22599d52-643a-4b42-a0f7-2738579123c1"/>
+			</line>
+			<line>
+				<reportElement x="494" y="1" width="1" height="21" uuid="aaea16e7-df14-4ed6-8424-254970f8c987"/>
+			</line>
+			<staticText>
+				<reportElement x="368" y="3" width="94" height="20" uuid="fdbb8889-b58b-492b-af7f-ff38c040cb0d"/>
+				<textElement textAlignment="Center">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[JUMLAH]]></text>
+			</staticText>
+			<line>
+				<reportElement x="265" y="1" width="1" height="48" uuid="680ed69a-4a16-474a-915f-eedf0b40b1b7"/>
+			</line>
+			<textField>
+				<reportElement x="508" y="3" width="100" height="20" uuid="c57de206-0f13-4cad-ad95-142675ae4b01"/>
+				<textFieldExpression><![CDATA[$P{jdebit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="619" y="5" width="100" height="20" uuid="19936c1a-0f67-4028-af14-7397aa52c543"/>
+				<textFieldExpression><![CDATA[$P{jkredit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="565" y="26" width="100" height="20" uuid="453281a1-3f0f-4729-a355-6ea4e1207c46"/>
+				<textFieldExpression><![CDATA[$P{hasil}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="25" width="100" height="20" uuid="2e9c18ff-2ccd-4eda-9c4b-5b81fdda78ed"/>
+				<textFieldExpression><![CDATA[$P{ket}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
